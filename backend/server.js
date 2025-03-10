@@ -24,6 +24,10 @@ app.get('/', (req, res) => { //responds to the get request
     res.json({mssg: 'Welcome to the app'})
 })
 
+//in here this grabs all the routes attached to router, attaches all of them to express app and used them.
+app.use('/api/workouts', workoutRoutes) //In here if we call /api/workouts then all the routes in the workoutRoutes file is enabled/connected to app file 
+//according to the passing route, the appropriate function in the workRoutes route will fire
+
 
 
 
