@@ -8,6 +8,15 @@ const express = require('express')
 //express app
 const app = express() //creates the express app and stored in the app constant
 
+
+//middleware to run each time a request occurs
+app.use((req, res, next) =>{
+    console.log(req.path, req.method)
+    next()
+})
+
+
+
 //creates a route for react to a request
 app.get('/', (req, res) => { //responds to the get request
     // '/' means the localhost:3000
