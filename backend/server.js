@@ -2,6 +2,7 @@ require('dotenv').config() //attach the environment objects to process.env objec
 
 
 const express = require('express')
+const workoutRoutes = require('./routes/workouts')
 
 
 
