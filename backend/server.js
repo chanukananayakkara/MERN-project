@@ -1,3 +1,6 @@
+require('dotenv').config() //attach the environment objects to process.env object
+
+
 const express = require('express')
 
 
@@ -15,6 +18,7 @@ app.get('/', (req, res) => { //responds to the get request
 
 
 //listen for requests
-app.listen(3000, () =>{ //listen for requests from this port
-    console.log('listening on port 3000')
+app.listen(process.env.PORT, () =>{ //listen for requests from this port
+    //calling the process.env object environment variables inside it
+    console.log('listening on port',process.env.PORT)
 })
