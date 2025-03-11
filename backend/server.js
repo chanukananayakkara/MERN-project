@@ -2,6 +2,7 @@ require('dotenv').config() //attach the environment objects to process.env objec
 
 
 const express = require('express')
+const mongoose = require('mongoose') //now we can use this mongoose object to connect with the database
 const workoutRoutes = require('./routes/workouts')
 
 
