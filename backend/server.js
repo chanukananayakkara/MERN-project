@@ -38,10 +38,18 @@ app.use('/api/workouts', workoutRoutes) //In here if we call /api/workouts then 
 //according to the passing route, the appropriate function in the workRoutes route will fire
 
 
-
-
-//listen for requests
+//connect to db
+mongoose.connect(process.env.MONGO_URI) //this is a async request and it returns a promise
+.then(() =>{
+    //listen for requests
 app.listen(process.env.PORT, () =>{ //listen for requests from this port
     //calling the process.env object environment variables inside it
     console.log('listening on port',process.env.PORT)
 })
+})
+.catch((error) =>{
+    console.log(error)
+})
+
+
+
