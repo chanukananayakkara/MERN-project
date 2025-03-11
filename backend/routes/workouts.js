@@ -1,4 +1,7 @@
 const express = require('express')
+const { //in here we use object because we have to pass multiple functions from the workoutController file
+    createWorkout
+} = require('../controllers/workoutController')
  
 const router = express.Router() //used for access the express app in this file
 //the above Router method creates a router object to access express app in this file
