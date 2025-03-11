@@ -44,7 +44,7 @@ mongoose.connect(process.env.MONGO_URI) //this is a async request and it returns
     //listen for requests
 app.listen(process.env.PORT, () =>{ //listen for requests from this port
     //calling the process.env object environment variables inside it
-    console.log('listening on port',process.env.PORT)
+    console.log('connected to db & listening on port',process.env.PORT)
 })
 })
 .catch((error) =>{
