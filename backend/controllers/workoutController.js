@@ -11,7 +11,7 @@ const Workout = require('../models/workoutModel') //We mention this file in here
 
 
 //create new workout
-const createWorkout = async (req, res) =>{ //createWorkout is a object to access the function and this is a async function with req and res parameters
+const createWorkout = async (req, res) =>{ //createWorkout is a object created to access the creating function and this is a async function with req and res parameters
 
     const {title, load, reps} = req.body //this means desctructure the body of the POST message and and take the fields specified by accessing the req property.
 
