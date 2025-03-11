@@ -3,7 +3,13 @@
 const Workout = require('../models/workoutModel') //We mention this file in here because we need this file to work with the database
 
 // get all workouts
+const getWorkout = async (req, res) => {
+    const workouts = await Workout.find({}).sort({createdAt: -1}) //in here display all the workouts in the ascending order
+    //in here we can pass a attribute of the workout object to find method to find a specific ojbect or set of objects
 
+    res.status(200).json(workouts) //in here show the results of find method using the declared object 'workouts' as a json object
+
+}
 
 
 //get a single workout
@@ -34,6 +40,7 @@ const createWorkout = async (req, res) =>{ //createWorkout is a object created t
 //update a workout
 
 module.exports = { //in here we can export the functions we created in this controller file.
-    createWorkout
+    createWorkout,
+    getWorkout
 
 }
