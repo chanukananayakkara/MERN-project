@@ -32,6 +32,8 @@ router.patch('/:id', (req, res) =>{
     res.json({mssg: 'UPDATE a single workout'})
 })
 
+//these are different routes/ request handlers
+
 
 
 

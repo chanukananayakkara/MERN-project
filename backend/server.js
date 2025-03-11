@@ -11,6 +11,14 @@ const app = express() //creates the express app and stored in the app constant
 
 
 //middleware to run each time a request occurs
+app.use(express.json())
+/* This is useful to access the passing data to the server using req object. (using POST request)
+because this middleware check whether the coming request has an body, and if it has,
+then it attaches the data in the body to req object */ 
+
+
+
+
 app.use((req, res, next) =>{
     console.log(req.path, req.method)
     next()
