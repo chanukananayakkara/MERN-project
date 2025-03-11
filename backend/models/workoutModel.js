@@ -19,6 +19,6 @@ const workoutSchema = new Schema({ //creating a new schema for our workout schem
     }
 
     //as a whole this defines the structure of the document which we saved in the database
-}, {timestamps: true})//this is the property that stores the details of the object like object created date, object updated date like.
+}, {timestamps: true})//this is the property that stores the details of the object like object created date, object updated date likewise.
 
 module.exports = mongoose.model('Workout',workoutSchema) //created a model using the schema that created to work with the schema. It's created a collection of workouts in the database
