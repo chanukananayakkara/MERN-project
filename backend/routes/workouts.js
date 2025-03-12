@@ -1,6 +1,7 @@
 const express = require('express')
 const { //in here we use object because we have to pass multiple functions from the workoutController file
-    createWorkout
+    createWorkout,
+    getWorkout
 } = require('../controllers/workoutController')
  
 const router = express.Router() //used for access the express app in this file
@@ -8,9 +9,7 @@ const router = express.Router() //used for access the express app in this file
 
 
 //GET all workouts
-router.get('/', (req, res) => {
-    res.json({mssg: 'GET all workouts'})
-}) 
+router.get('/', getWorkout) 
 
 //GET a single workout
 router.get('/:id', (req, res) =>{
