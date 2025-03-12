@@ -1,6 +1,7 @@
 //functions created in this file will called in workouts.js routes file
 
 const Workout = require('../models/workoutModel') //We mention this file in here because we need this file to work with the database
+const mongoose = require('mongoose') //required to validate the object id is in mongoDB/mongoose type or not
 
 // get all workouts
 const getWorkout = async (req, res) => {
@@ -13,7 +14,21 @@ const getWorkout = async (req, res) => {
 
 
 //get a single workout
+const singleWorkout = async (req, res) => {
+    const { id } = req.params //take id of the request using destructure the route parameter (req.params)
 
+    if (!mongoose.Types.ObjectId.isValid(id)) { //this method checks the id that we got is a valid mongoose type id or not
+        return res.status(404).json({error: 'No such workout'}) //in here we avoid the internal error by checking the id and return an error with status. 
+    }
+
+    const foundWorkout = await Workout.findById(id) //using the workout model and destructured id from route parameter, find the relavant object.
+
+    if(!foundWorkout){
+        return res.status(400).json({error: 'No sucn workout'}) //return here because otherwise it take the error json string from the begining to the end of the function
+
+    }
+    res.status(200).json(foundWorkout)
+}
 
 
 //create new workout
@@ -41,6 +56,7 @@ const createWorkout = async (req, res) =>{ //createWorkout is a object created t
 
 module.exports = { //in here we can export the functions we created in this controller file.
     createWorkout,
-    getWorkout
+    getWorkout,
+    singleWorkout
 
 }
