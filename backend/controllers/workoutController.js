@@ -67,11 +67,32 @@ const deleteWorkout = async (req, res) =>{
 
 
 //update a workout
+const updateWorkout = async (req, res) =>{
+  
+    if(!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({error: 'No such workout'})
+    }
+    
+    const updatedWorkout = await Workout.findOneAndUpdate({_id: id}, { //in here we spread the properties of the req.body object then updating those properties
+        ...req.body
+
+        /*two parameters are passing to the findOneAndUpdate function, which are the id of the object we want to update and the
+        properties we are updating in the requesting object */ 
+    })
+
+    if(!updatedWorkout){
+        return res.status(400).json({error: 'No such workout'})
+    }
+
+    res.status(200).json(updatedWorkout)
+}
+
 
 module.exports = { //in here we can export the functions we created in this controller file.
     createWorkout,
     getWorkout,
     singleWorkout,
-    deleteWorkout
+    deleteWorkout,
+    updateWorkout
 
 }

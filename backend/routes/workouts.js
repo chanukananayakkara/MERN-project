@@ -3,7 +3,8 @@ const { //in here we use object because we have to pass multiple functions from 
     createWorkout,
     getWorkout,
     singleWorkout,
-    deleteWorkout
+    deleteWorkout,
+    updateWorkout
 } = require('../controllers/workoutController')
  
 const router = express.Router() //used for access the express app in this file
@@ -26,9 +27,7 @@ router.delete('/:id', deleteWorkout)
 
 
 //UPDATE a workout
-router.patch('/:id', (req, res) =>{
-    res.json({mssg: 'UPDATE a single workout'})
-})
+router.patch('/:id', updateWorkout)
 
 //these are different routes/ request handlers
 
