@@ -56,7 +56,7 @@ const deleteWorkout = async (req, res) =>{
         return res.status(404).json({error: 'No such workout'})
     }
 
-    const deletedWorkout = Workout.findOneAndDelete({_id: id}) //in here, we match the value in the _id field in the mongoDB with the id we destructured from the route parameter and take the returning object/document to a constant named deletedWorkout
+    const deletedWorkout = await Workout.findOneAndDelete({_id: id}) //in here, we match the value in the _id field in the mongoDB with the id we destructured from the route parameter and take the returning object/document to a constant named deletedWorkout
 
     if(!deletedWorkout){
         return res.status(400).json({error: 'No such workout'})
@@ -68,16 +68,18 @@ const deleteWorkout = async (req, res) =>{
 
 //update a workout
 const updateWorkout = async (req, res) =>{
+
+    const { id } = req.params
   
     if(!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).json({error: 'No such workout'})
     }
     
-    const updatedWorkout = await Workout.findOneAndUpdate({_id: id}, { //in here we spread the properties of the req.body object then updating those properties
+    const updatedWorkout = await Workout.findOneAndUpdate({_id: id}, { //in here we spread the properties of the req.body object then updating the properties that we want to update
         ...req.body
 
         /*two parameters are passing to the findOneAndUpdate function, which are the id of the object we want to update and the
-        properties we are updating in the requesting object */ 
+        properties to take to the updating process in the requesting object */ 
     })
 
     if(!updatedWorkout){
