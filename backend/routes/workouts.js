@@ -2,7 +2,8 @@ const express = require('express')
 const { //in here we use object because we have to pass multiple functions from the workoutController file
     createWorkout,
     getWorkout,
-    singleWorkout
+    singleWorkout,
+    deleteWorkout
 } = require('../controllers/workoutController')
  
 const router = express.Router() //used for access the express app in this file
@@ -21,9 +22,7 @@ router.post('/', createWorkout) //calling the function created in the controller
 
 
 //DELETE a workout
-router.delete('/:id', (req, res) =>{
-    res.json({mssg: 'DELETE a single workout'})
-})
+router.delete('/:id', deleteWorkout)
 
 
 //UPDATE a workout

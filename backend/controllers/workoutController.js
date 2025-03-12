@@ -18,7 +18,7 @@ const singleWorkout = async (req, res) => {
     const { id } = req.params //take id of the request using destructure the route parameter (req.params)
 
     if (!mongoose.Types.ObjectId.isValid(id)) { //this method checks the id that we got is a valid mongoose type id or not
-        return res.status(404).json({error: 'No such workout'}) //in here we avoid the internal error by checking the id and return an error with status. 
+        return res.status(404).json({error: 'No such workout'}) //in here we avoid the internal error by checking the id and return an json error with status. 
     }
 
     const foundWorkout = await Workout.findById(id) //using the workout model and destructured id from route parameter, find the relavant object.
@@ -49,7 +49,21 @@ const createWorkout = async (req, res) =>{ //createWorkout is a object created t
 
 
 //delete a workout
+const deleteWorkout = async (req, res) =>{
+    const { id } = req.params
 
+    if(!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({error: 'No such workout'})
+    }
+
+    const deletedWorkout = Workout.findOneAndDelete({_id: id}) //in here, we match the value in the _id field in the mongoDB with the id we destructured from the route parameter and take the returning object/document to a constant named deletedWorkout
+
+    if(!deletedWorkout){
+        return res.status(400).json({error: 'No such workout'})
+    }
+
+    res.status(200).json(deletedWorkout)
+}
 
 
 //update a workout
@@ -57,6 +71,7 @@ const createWorkout = async (req, res) =>{ //createWorkout is a object created t
 module.exports = { //in here we can export the functions we created in this controller file.
     createWorkout,
     getWorkout,
-    singleWorkout
+    singleWorkout,
+    deleteWorkout
 
 }
