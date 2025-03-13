@@ -13,7 +13,7 @@ function App() {
         <div className="pages">{/*all of our different pages are going inside this div*/}
 
           
-          <Routes>{/*we are going to outpus some routes */}
+          <Routes>{/*we are going to output some routes */}
             
             <Route
               path="/" 
