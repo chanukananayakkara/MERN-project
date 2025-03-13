@@ -5,6 +5,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 //pages and components
 import Home from './pages/Home';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
 
       
       <BrowserRouter>{/*Usage of the BrowserRouter is to surrounds everything that needs the browsing system*/}
-        
+        <Navbar /> {/*output the navbar component ahead of all the pages to work with different pages but inside the BrowserRouter to use the Link component*/}
         <div className="pages">{/*all of our different pages are going inside this div*/}
 
           
