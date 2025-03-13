@@ -16,7 +16,7 @@ const Home = () =>{
              localhost part as well to call the relavant API and take the data to the response object like below */
 
 
-             const response = await fetch('http://localhost:4000/api/workouts')  /*in here http://localhost:3000 part is backend server 
+             const response = await fetch('/api/workouts')  /*in here http://localhost:3000 part is backend server 
                                                                                 and api/workouts part is the URI*/
              const json = await response.json()   //This method used to convert the data in the response object to a json string (array of objects/array of workouts)
 
