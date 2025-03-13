@@ -44,3 +44,40 @@ header a {
 
 /*created the css for index page because finally all the javascript codes rendered under the div called "root" in the index.html file.
 Then applying css to that file means applying css to the whole react project.*/
+
+
+/* homepage */
+.home {
+  display: grid; /*display the home class as a grid*/
+  grid-template-columns: 3fr 1fr; /*These are the  column properties of that grid. Workout details are printing in the left side,  
+  and the right side displays a form to add new workout. Those 2 sides are devided by the these column properties*/
+  gap: 100px;
+}
+.workout-details { /*displays workout details like a card*/
+  background: #fff;
+  border-radius: 4px;
+  margin: 20px auto;
+  padding: 20px;
+  position: relative;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+}
+.workout-details h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.2em;
+  color: var(--primary); /*color of the things inside the h4 tag that insides the workout-details  is --primary, which is green*/
+}
+.workout-details p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #555;
+}
+.workout-details span { /*This is for the delete button that add later. So doesn't do anything really yet  */
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background: #f1f1f1;
+  padding: 6px;
+  border-radius: 50%;
+  color: #333;
+}
