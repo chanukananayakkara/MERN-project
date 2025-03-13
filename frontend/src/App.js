@@ -8,9 +8,23 @@ function App() {
     <div className="App">
 
       
-      <BrowserRouter>
-        {/*Usage of the BrowserRouter is to surrounds everything that needs the browsing system*/}
-      
+      <BrowserRouter>{/*Usage of the BrowserRouter is to surrounds everything that needs the browsing system*/}
+        
+        <div className="pages">{/*all of our different pages are going inside this div*/}
+
+          
+          <Routes>{/*we are going to outpus some routes */}
+            
+            <Route
+              path="/" 
+              element={} 
+            
+            
+            /> {/*self-closing individual route with two props */}
+            {/*path is used to mention the path/URI to a page */}
+            {/*In the element prop we give the element (ex- page) to render when we call the above path */}
+          </Routes>
+        </div>
       </BrowserRouter>
       
     </div>
