@@ -26,6 +26,7 @@ function App() {
             /> {/*self-closing individual route with two props */}
             {/*path is used to mention the path/URI to a page */}
             {/*In the element prop we give the element (ex- page) to render when we call the above path */}
+            {/*now the Home component rendered for the path "/" */}
           </Routes>
         </div>
       </BrowserRouter>
