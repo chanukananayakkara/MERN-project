@@ -42,8 +42,9 @@ const Home = () =>{
         <div className="home">
             <div className="workouts">
                 {workouts && workouts.map((workout) =>(
-                    <p key={workout._id}>{workout.title}</p> /*in here, every object(workout) needs a unique key property, 
-                    thats why we use id of the workout as the key to the workout. Then print the title of the same workout inside the p tag */
+                    <WorkoutDetails key ={workout._id} workout ={workout}/>/*in here, every object(workout) needs a unique key property, 
+                    thats why we use id of the workout as the key to the workout. Then pass the whole workout object as a prop to the WorkoutDetails component.
+                    Then we can access the workout object inside the WorkoutDetails component by destructuring the workout object */
 
                 ))} {/*In here the meaning is if we have workouts, then only we fire a function to each individual workout and return some template*/}
             </div>
