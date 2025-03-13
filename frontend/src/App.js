@@ -3,6 +3,9 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 //Routes component wraps all the individual wraps
 //Route component uses to create a single route
 
+//pages and components
+import Home from './pages/Home';
+
 function App() {
   return (
     <div className="App">
@@ -17,7 +20,7 @@ function App() {
             
             <Route
               path="/" 
-              element={} 
+              element={<Home />} 
             
             
             /> {/*self-closing individual route with two props */}
