@@ -40,7 +40,7 @@ const WorkoutForm = () => {
         if(response.ok){
             setError(null)
             setTitle('') /*In here we have to reset the form to add another workout again. To do that, we have to reset all these
-            properties to empty strings. Therefore we don't want to delete what's already in there*/ 
+            form fields back to empty strings. Therefore we don't want to delete what's already in there*/ 
             setLoad('')
             setReps('')
             console.log('new workout added',json)
