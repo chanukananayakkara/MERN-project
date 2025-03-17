@@ -81,3 +81,33 @@ Then applying css to that file means applying css to the whole react project.*/
   border-radius: 50%;
   color: #333;
 }
+/* new workout form */
+label, input {
+  display: block; /*this line is used to display labels and labels as blocks*/
+}
+input {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box; /*these changes apply only for inputs in the form*/
+}
+form button {
+  background: var(--primary); /*change button color to primary variable color defined above*/
+  border: 0; /*remove the border of the button*/
+  color: #fff; /*color of the text in the button is this color*/
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 4px;
+  cursor: pointer; /*change cursor to a pointer*/
+}
+div.error { /*these changes are added to the error dive at the bottom of the form*/
+  padding: 10px;
+  background: #ffefef;
+  border: 1px solid var(--error); /*border color of the error division is the error variable color defined above*/
+  color: var(--error); /*text color in the error division is also the error variable color defined above*/
+  border-radius: 4px;
+  margin: 20px 0; /*margin top and bottom is 20px and left and right is 0px*/
+}

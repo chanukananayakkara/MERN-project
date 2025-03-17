@@ -83,7 +83,11 @@ const WorkoutForm = () => {
             /> 
 
             <button>Add Workout</button>
+            {error && <div className="error">{error}</div>} {/*In here what we are doing is if there's an error, display that error under
+            the form itself && is used to conditional rendering */}
 
         </form>
     )
 }
+
+export default WorkoutForm
