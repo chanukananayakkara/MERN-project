@@ -9,6 +9,7 @@ const WorkoutForm = () => {
     const [title, setTitle] = useState('')
     const [load, setLoad] = useState('')
     const [reps, setReps] = useState('')
+    const [error, setError] = useState(null)
 
     const handleSubmit = async (e) =>{
         //created a function to fire when the user submitted the form
@@ -31,6 +32,21 @@ const WorkoutForm = () => {
         })
         const json = await response.json /*because as the response there is a json object returns. To catch that json object we
         declare a ojbect like this. */ 
+
+        if(!response.ok) //in here we check the response and if it was not okay, we set the error to state using setError method.
+        {
+            setError(json.error)
+        }
+        if(response.ok){
+            setError(null)
+            setTitle('') /*In here we have to reset the form to add another workout again. To do that, we have to reset all these
+            properties to empty strings. Therefore we don't want to delete what's already in there*/ 
+            setLoad('')
+            setReps('')
+            console.log('new workout added',json)
+
+        }
+
     }
 
     return(
